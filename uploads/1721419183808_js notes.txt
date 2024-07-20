@@ -1,0 +1,101 @@
+1)Meta Tag provide information about the page   
+2)Description provide more info about the page  
+3) http-equiv refresh the page when provide url then after time if will refresh and open that url 
+4) charset means numeric representation of character 
+5) Semantic html means communicate more clearly to the user as well as browser 
+semantic tags:-nav,header,footer 
+6)specificity :
+id-100 class-10 tag-1 *-0 
+7) css var vs css property 
+:root{
+--primaryColor:dodgerblue 
+} 
+root is css pseudo-class with higher specificity 
+vivek sir email vivek.m@masai  
+8) Type coercion js trying to convert values to number while string,boolean etc  
+9) Hoisting Means acess Function or var before initialize it . 
+10) hoisting allows you to use functions and variables before they're declared. 
+11) This Keyword Al global this===window in case of browser   
+
+12) Anything which is not defined inside function is golabal scope when we create any var or function in global space than it will attach to window we can access
+ it by using window.varname or varname 
+
+13)"undefined" indicates that a variable has been declared but not given a value, while "not defined" indicates that a variable does not exist. 
+
+14) js is lossely type language means we can change its type after creating var it is flexible  
+
+15) scope means where u can access specific function or variable  
+
+--16) What is constructor in JavaScript with example?
+A constructor is a function that creates an instance of a class which is typically called an “object”. In JavaScript, a constructor gets called when you declare an 
+object using the new keyword. The purpose of a constructor is to create an object and set values if there are any object properties present. 
+17)What is super in JS?
+The super keyword is used to access properties on an object literal or class's [[Prototype]], or invoke a superclass's constructor 
+
+18) Prototype Inheritance
+In JavaScript, a prototype can be used to add properties and methods to a constructor function. And objects inherit properties and methods from a prototype 
+19)To horizontally center a block element (like <div>), use margin: auto; 
+20)when we give border radius 50% to div it will create circle 
+21)What is a hoisting in JS?
+In JavaScript, hoisting allows you to use functions and variables before they're declared. 
+22)Closures are functions that are nested in other functions / function with lexical scope bundled is called closure
+23)specificity:- ID-100 class-10 tag-1 universal/* -0 
+24)What is padding in CSS?
+An element's padding area is the space between its content and its border  
+padding-top
+padding-right
+padding-bottom
+padding-left 
+25) a margin is the space around an element's border, while padding is the space between an element's border and the element's content 
+26)n JavaScript, the this keyword refers to an object. Which object depends on how this is being invoked   
+In an object method, this refers to the object.
+Alone, this refers to the global object.
+In a function, this refers to the global object.
+In a function, in strict mode, this is undefined.
+In an event, this refers to the element that received the event.
+Methods like call(), apply(), and bind() can refer this to any object. 
+28)Higher-Order function is a function that receives a function as an argument or returns the function as output.
+
+For example, Array.prototype.map, Array.prototype.filter and Array.prototype.reduce are some of the Higher-Order functions built into the language. 
+Map(),reduce(),filter () 
+map perform operation on each element of array and return an array 
+reduce The reduce method executes the callback function on each member of the calling array which results in a single output value. 
+filter work same like map return boolean value 
+29) What is the CSS position property?
+The CSS position property defines the position of an element in a document. This property works with the left, right, top, bottom and z-index properties to determine the final position of an element on a page.
+
+There are five values the position property can take. They are:
+
+static
+relative
+absolute
+fixed
+sticky 
+
+30) var	                                          let	                           const
+var has the function or global scope.	let's have the block scope.	const variable has the block scope.
+It gets hoisted to the top of its scope and initialized undefined.	It also got hoisted to the top of its scope but didn't initialize.	It also got hoisted to the top of its scope but didn't initialize.
+It can be updated or re-declared.	It can only be updated and can't be re-declared.	It can't be updated or re-declared.
+It's an old way to declare a variable.	It's a new way to declare variables introduced in ES6.	It's also a new way to declare a variable, which introduces in ES6.
+
+31) Synchronous tasks happen in order—you must complete the current task before moving on to the next. Asynchronous tasks are executed in any order or even at once.
+js is synchronous language .
+
+32) Promises are used to handle asynchronous operations in JavaScript. They are easy to manage when dealing with multiple asynchronous operations where callbacks can 
+create callback hell leading to unmanageable code.   
+A Promise has four states: 
+fulfilled: Action related to the promise succeeded
+rejected: Action related to the promise failed
+pending: Promise is still pending i.e. not fulfilled or rejected yet
+settled: Promise has fulfilled or rejected
+A promise can be created using Promise constructor.
+Syntax
+var promise = new Promise(function(resolve, reject){
+     //do something
+}); 
+33) Currying is the process of transforming a function that takes multiple arguments into a function that takes just a single argument and returns another function if 
+any arguments are still needed. 
+34)
+
+
+
