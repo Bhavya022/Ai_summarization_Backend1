@@ -18,9 +18,9 @@ const { errorMonitor } = require('events');
 require('dotenv').config();
 
 const app = express();
-app.use(cors({
-  origin: 'http://localhost:3001', // Replace with your frontend URL
-}));
+// app.use(cors({
+//   origin: 'http://localhost:3001', // Replace with your frontend URL
+// }));
 
 const apiKey = process.env.COHERE_API_KEY;
 const cohere = new CohereClient({
