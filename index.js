@@ -32,7 +32,9 @@ app.use(express.json());
 
 // Connect to MongoDB
 connectDB();
-
+app.get('/',(req,res)=>{
+  res.send("welcome");
+});
 // User authentication routes
 app.post('/api/signup', authController.register);
 app.post('/api/login', authController.login);
