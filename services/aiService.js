@@ -33,7 +33,7 @@ const summarizeText = async (text) => {
   //const summary = summarize.summary || 'No summary available';
 
 // Return the summary without meta data
-return summazrize.summary ;
+return summarize.summary ;
       
       
     } catch (error) {
