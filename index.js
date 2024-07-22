@@ -47,6 +47,7 @@ app.post('/api/summarize', async (req, res) => {
     // Summarize the text
     const summaryResponse = await summarizeText(text);
     const summary = summaryResponse.summary || 'No summary available';
+    console.log(summary);
     //const keywords = await extractKeywords(text);
     const sentiments = await classifySentiment([text]);
     const classifications = await classifyTexts([text]);
