@@ -29,12 +29,13 @@ const summarizeText = async (text) => {
       const summarize = await cohere.summarize({
         text: text.substring(0, 4081),
       });
-      console.log(summarize);
-  
-      const summary = summarize.summary || 'No summary available';
-      const meta = JSON.stringify(summarize.meta || {});
-  
-      return `Summary: ${summary}\nMeta: ${meta}`;
+      console.log('summaryconsole',summarize);
+  const summary = summarize.summary || 'No summary available';
+
+// Return the summary without meta data
+return `Summary: ${summary}`;
+      
+      
     } catch (error) {
       console.error('Error in text summarization:', error);
       throw new Error('Error in text summarization');
