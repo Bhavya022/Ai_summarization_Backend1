@@ -16,6 +16,7 @@ const register = async (req, res) => {
     await user.save();
     res.status(201).json({ message: 'User created' });
   } catch (error) {
+    console.log(error);
     res.status(500).json({ error: error.message });
   }
 };
@@ -33,7 +34,8 @@ const login = async (req, res) => {
 
     const accessToken = jwt.sign({ username: user.username }, process.env.JWT_SECRET || 'DunlinAI', { expiresIn: '1h' });
     res.json({ accessToken });
-  } catch (error) {
+  } catch (error) { 
+    console.log(error);
     res.status(500).json({ error: error.message });
   }
 };
