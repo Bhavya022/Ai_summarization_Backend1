@@ -30,10 +30,10 @@ const summarizeText = async (text) => {
         text: text.substring(0, 4081),
       });
       console.log('summaryconsole',summarize);
-  const summary = summarize.summary || 'No summary available';
+  //const summary = summarize.summary || 'No summary available';
 
 // Return the summary without meta data
-return summary ;
+return summazrize.summary ;
       
       
     } catch (error) {
