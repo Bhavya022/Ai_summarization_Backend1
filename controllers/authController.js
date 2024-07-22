@@ -9,6 +9,7 @@ const saltRounds = 10;
 // Register a new user
 const register = async (req, res) => {
   const { username, email, password } = req.body;
+  console.log(req.body);
   try {
     const hashedPassword = await bcrypt.hash(password, saltRounds);
     const user = new User({ username, email, password: hashedPassword });
@@ -22,6 +23,7 @@ const register = async (req, res) => {
 // Log in a user
 const login = async (req, res) => {
   const { email, password } = req.body;
+   console.log(req.body);
   try {
     const user = await User.findOne({ email });
     if (!user) return res.status(400).json({ message: 'Invalid credentials' });
