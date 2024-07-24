@@ -242,5 +242,21 @@ const getTopKeywords = (keywords, topN) => {
   return sortedKeywords.slice(0, topN);
 };
 
+const analyzeText = async (text) => {
+  try {
+    const summary = await summarizeText(text);
+    const sentiment = classifySentiment(text);
+    const keywords = extractKeywords(summary);
+    
+    return {
+      summary,
+      sentiment,
+      keywords
+    };
+  } catch (error) {
+    console.error('Error in text analysis:', error);
+    throw new Error('Error in text analysis');
+  }
+};
 
-module.exports = { summarizeText, paraphraseText, classifyTexts ,classifySentiment,extractKeywords };
+module.exports = { summarizeText, paraphraseText, classifyTexts ,classifySentiment,extractKeywords,analyzeText };
