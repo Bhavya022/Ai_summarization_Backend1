@@ -246,12 +246,12 @@ const analyzeText = async (text) => {
   try {
     const summary = await summarizeText(text);
     const sentiment = classifySentiment(text);
-    const keywords = extractKeywords(summary);
+    const keyPhrases = extractKeywords(summary); // Renamed to match frontend expectations
     
     return {
       summary,
       sentiment,
-      keywords
+      keyPhrases
     };
   } catch (error) {
     console.error('Error in text analysis:', error);
