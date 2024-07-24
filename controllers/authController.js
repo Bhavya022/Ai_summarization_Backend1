@@ -33,8 +33,8 @@ const login = async (req, res) => {
     if (!match) return res.status(400).json({ message: 'Invalid credentials' });
 
     const accessToken = jwt.sign({ username: user.username }, process.env.JWT_SECRET || 'DunlinAI', { expiresIn: '1h' });
-    console.log(accessToken,user);
-    res.json({ accessToken,user });
+    console.log(accessToken,user.username);
+    res.json({ accessToken,user.username });
   } catch (error) { 
     console.log(error);
     res.status(500).json({ error: error.errmsg  });
