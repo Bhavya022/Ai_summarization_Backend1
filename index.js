@@ -58,7 +58,7 @@ app.post('/api/summarize',authenticateToken, async (req, res) => {
 });
 
 // Route to paraphrase text
-app.post('/api/paraphrase',authenticateToken, async (req, res) => {
+app.post('/api/paraphrase', async (req, res) => {
   try {
     const { text } = req.body;
     console.log(text);
