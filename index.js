@@ -67,7 +67,7 @@ app.post('/api/paraphrase',authenticateToken, async (req, res) => {
     // Truncate text if it exceeds the limit
     const truncatedText = text.length > MAX_TOKENS ? text.slice(0, MAX_TOKENS) : text;
     const paraphrase = await paraphraseText(truncatedText);
-    
+    console.log(paraphrase);
     res.json({ paraphrase });
   } catch (error) {
     console.error('Error paraphrasing text:', error);
