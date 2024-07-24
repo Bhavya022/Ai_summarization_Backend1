@@ -34,7 +34,7 @@ app.post('/api/signup', authController.register);
 app.post('/api/login', authController.login);
 
 // Route to summarize and analyze text
-app.post('/api/summarize', async (req, res) => {
+app.post('/api/summarize',authenticateToken, async (req, res) => {
   try {
     const { text } = req.body;
     const summaryResponse = await summarizeText(text);
@@ -58,7 +58,7 @@ app.post('/api/summarize', async (req, res) => {
 });
 
 // Route to paraphrase text
-app.post('/api/paraphrase', async (req, res) => {
+app.post('/api/paraphrase',authenticateToken, async (req, res) => {
   try {
     const { text } = req.body;
     console.log(text);
@@ -88,7 +88,7 @@ app.post('/api/classify', authenticateToken, async (req, res) => {
 });
 
 // Route to classify sentiment of texts
-app.post('/api/classify-sentiment', async (req, res) => {
+app.post('/api/classify-sentiment',authenticateToken, async (req, res) => {
   try {
     const { texts } = req.body;
     const sentiments = await classifySentiment(texts);
@@ -100,7 +100,7 @@ app.post('/api/classify-sentiment', async (req, res) => {
 });
 
 // Route to upload and process files
-app.post('/api/upload', upload.single('file'), async (req, res) => {
+app.post('/api/upload',authenticateToken, upload.single('file'), async (req, res) => {
   try {
     const { file } = req;
     if (!file) {
@@ -180,7 +180,7 @@ app.post('/api/upload', upload.single('file'), async (req, res) => {
 });
 
 // Route to download the report
-app.get('/api/download-report', (req, res) => {
+app.get('/api/download-report',authenticateToken, (req, res) => {
   const { reportPath } = req.query;
   if (!reportPath) {
     return res.status(400).json({ error: 'Missing report path.' });
