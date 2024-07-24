@@ -59,15 +59,25 @@ app.post('/api/summarize',authenticateToken, async (req, res) => {
 
 // Route to paraphrase text
 app.post('/api/paraphrase',authenticateToken, async (req, res) => {
-  try {
+try {
     const { text } = req.body;
-    console.log(text);
-    const MAX_TOKENS = 4081; // Adjust based on Co:here's token limit
+
+    if (!text) {
+      return res.status(400).json({ error: 'Text is required' });
+    }
+
+    const MAX_TOKENS = 4081; // Adjust based on Cohere's token limit
+
+    // Function to count tokens (simple example, might need a more accurate tokenization)
+    const countTokens = (text) => text.split(/\s+/).length; 
 
     // Truncate text if it exceeds the limit
-    const truncatedText = text.length > MAX_TOKENS ? text.slice(0, MAX_TOKENS) : text;
+    const truncatedText = countTokens(text) > MAX_TOKENS 
+      ? text.split(/\s+/).slice(0, MAX_TOKENS).join(' ')
+      : text;
+
     const paraphrase = await paraphraseText(truncatedText);
-    console.log(paraphrase);
+
     res.json({ paraphrase });
   } catch (error) {
     console.error('Error paraphrasing text:', error);
@@ -180,7 +190,7 @@ app.post('/api/upload',authenticateToken, upload.single('file'), async (req, res
 });
 
 // Route to download the report
-app.get('/api/download-report',authenticateToken, (req, res) => {
+app.get('/api/download-report', (req, res) => {
   const { reportPath } = req.query;
   if (!reportPath) {
     return res.status(400).json({ error: 'Missing report path.' });
