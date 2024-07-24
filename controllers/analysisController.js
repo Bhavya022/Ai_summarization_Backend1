@@ -2,16 +2,28 @@ const { analyzeText } = require('../services/aiService');
 
 const analyzeTextContent = async (req, res) => {
     try {
-        const fileContent = req.body.text;  // Ensure text is provided in the request body
+        const fileContent = req.body.text;
+
+        if (!fileContent || typeof fileContent !== 'string') {
+            return res.status(400).json({ message: 'Invalid input. Text is required.' });
+        }
+
         const analysis = await analyzeText(fileContent);
-        const summary = analysis.summary;
-        const insights = {
-            sentiment: analysis.sentiment,
-            keyPhrases: analysis.keyPhrases,
-        };
-        res.json({ summary, insights });
+
+        const summary = analysis.summary || 'No summary available';
+        const sentiment = analysis.sentiment || 'No sentiment analysis available';
+        const keyPhrases = analysis.keyPhrases || [];
+
+        res.json({
+            summary,
+            insights: {
+                sentiment,
+                keyPhrases
+            }
+        });
     } catch (error) {
-        res.status(500).send(error.message);
+        console.error('Error during text analysis:', error);
+        res.status(500).json({ message: 'An error occurred while analyzing the text.' });
     }
 };
 
