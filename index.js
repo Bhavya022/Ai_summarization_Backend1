@@ -61,12 +61,13 @@ app.post('/api/summarize', async (req, res) => {
 app.post('/api/paraphrase', async (req, res) => {
   try {
     const { text } = req.body;
+    console.log(text);
     const MAX_TOKENS = 4081; // Adjust based on Co:here's token limit
 
     // Truncate text if it exceeds the limit
     const truncatedText = text.length > MAX_TOKENS ? text.slice(0, MAX_TOKENS) : text;
     const paraphrase = await paraphraseText(truncatedText);
-
+    
     res.json({ paraphrase });
   } catch (error) {
     console.error('Error paraphrasing text:', error);
