@@ -37,7 +37,9 @@ app.post('/api/login', authController.login);
 app.post('/api/summarize',authenticateToken, async (req, res) => {
   try {
     const { text } = req.body;
+    console.log(text)
     const summaryResponse = await summarizeText(text);
+    console.log(summaryResponse)
     const summary = summaryResponse.summary || 'No summary available';
     const sentiments = await classifySentiment([text]);
     const classifications = await classifyTexts([text]);
